@@ -1,0 +1,19 @@
+<h1><%= @cocktail.name %> </h1>
+
+<!-- @cocktail.name donne le nom
+@cocktail.doses donne les objets doses liés à ce cocktail grâce à has many -->
+<% @cocktail.doses.each do |x| %>
+<li> <%= x.description %> <%= x.ingredient.name %> </li>
+<% end %>
+ <br>
+ <br>
+
+
+<%= simple_form_for([@cocktail, @dose]) do |f| %>
+    <%= f.input :description %>
+    <%= f.association :ingredient, collection: Ingredient.all%>
+    <%= f.button :submit %>
+<% end %>
+
+
+<%= link_to 'Add ingredient', new_cocktail_dose_path(@cocktail), class: "btn btn-primary", id: "new_cocktail_btn" %>
