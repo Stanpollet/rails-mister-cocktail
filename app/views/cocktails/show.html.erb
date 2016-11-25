@@ -1,6 +1,6 @@
 <div class =" text-center">
   <h1><%= @cocktail.name %> </h1>
-
+  <%= cl_image_tag(@cocktail.photo, :effect=>"viesus_correct", height: 300, width: 400, crop: :fill) %>
 <!-- @cocktail.name donne le nom
   @cocktail.doses donne les objets doses liés à ce cocktail grâce à has many -->
   <% @cocktail.doses.each do |x| %>
