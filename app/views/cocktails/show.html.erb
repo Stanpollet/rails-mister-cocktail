@@ -1,6 +1,6 @@
 <div class =" text-center">
   <h1><%= @cocktail.name %> </h1>
-  <%= cl_image_tag(@cocktail.photo, :effect=>"viesus_correct", height: 300, width: 400, crop: :fill) %>
+  <%= cl_image_tag(@cocktail.photo, effect:"sepia:80", height: 300, width: 400, crop: :fill) %>
 <!-- @cocktail.name donne le nom
   @cocktail.doses donne les objets doses liés à ce cocktail grâce à has many -->
   <% @cocktail.doses.each do |x| %>
@@ -16,7 +16,5 @@
   <%= f.button :submit %>
   <% end %>
 
-
-  <%= link_to 'Add ingredient', new_cocktail_dose_path(@cocktail), class: "btn btn-primary", id: "new_cocktail_btn" %>
 
 </div>

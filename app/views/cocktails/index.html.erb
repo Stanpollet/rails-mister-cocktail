@@ -1,22 +1,19 @@
-<h1 class="text-center">Cocktails#index</h1>
 
-<div class="container">
-  <% @cocktails.each do |r| %>
+<h1 class="text-center"> Pick your cocktail </h1>
+
+<div class="container police">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-6">
-      <li> <%= r.name %> --> </li>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-6">
-         <%= link_to 'Show', cocktail_path(r), class: "btn btn-primary margin-top-5"%>
-        <%= link_to 'Edit', edit_cocktail_path(r), class: "btn btn-primary margin-top-5"%>
+    <% @cocktails.each do |r| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <%= link_to cocktail_path(r) do %>
+          <%= render "card", cocktail: r %>
+        <% end %>
+        <%= link_to 'Show', cocktail_path(r), class: "btn btn-primary margin-top-5"%>
         <%= link_to 'Delete', cocktail_path(r), method: :delete, class: "btn btn-primary margin-top-5"%>
-    </div>
-
+      </div>
+    <% end %>
   </div>
-
-  <% end %>
-
 </div>
-<br>
 
 <%= link_to 'New cocktail', new_cocktail_path, class: "btn btn-primary", id: "new_cocktail_btn" %>
+
